@@ -8,6 +8,7 @@ Window {
     title: qsTr("Hello World")
 
     signal signalQml2Qt()
+    signal signalParent2Child(var msg)
 
     Text {
         id:test
@@ -25,5 +26,7 @@ Window {
     function slotQt2Qml() {
         console.log("TEST: Qml received!")
         test.text = "World"
+
+        signalParent2Child("Hello World")
     }
 }
